@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": "Age of Empires (game)",
+      "Price": "10000",
+      "Country": null,
+      "CreatedDate": "Mon Feb 05 2024 14:02:31 GMT+0530 (India Standard Time)",
+      "FirstName": null,
+      "LastName": null,
+      "City": null,
+      "StreetAddress": null,
+      "Phone": null
+    },
+    {
+      "id": "Call of Duty(game)",
+      "Price": "2000",
+      "Country": null,
+      "CreatedDate": "Mon Feb 05 2024 14:02:50 GMT+0530 (India Standard Time)",
+      "FirstName": null,
+      "LastName": null,
+      "City": null,
+      "StreetAddress": null,
+      "Phone": null
+    },
+    {
+      "id": "Play Station",
+      "Price": "10000",
+      "Country": null,
+      "CreatedDate": "Mon Feb 05 2024 14:03:06 GMT+0530 (India Standard Time)",
+      "FirstName": null,
+      "LastName": null,
+      "City": null,
+      "StreetAddress": null,
+      "Phone": null
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,106 @@
+
+        <div class="d-flex"><p class="invisible">-----------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+            <button  type="button"  (click)="clickAddCustomer()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success btn-lg float-right">Add</button>
+        
+        </div>
+    
+
+
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Thumbnail</th>
+                  <th scope="col">Discounted Price</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let n of displayedData">
+                  <td>{{n.id}}</td>
+                  <td>{{n.Price}}</td>
+                  <td><img src="../../../assets/images.jpg" alt="Thumbnail" width="50" height="50"></td>
+                  <td>{{n.Price-1.1111111}}</td>
+
+                  <td>
+                      <button type="button" (click)="onView(n)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">View</button>
+                      &nbsp;
+                      <button type="button" (click)="onEdit(n)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                      <button (click)="deleteCustomer(n)" class="btn btn-danger mx-3">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      
+      <div>
+          <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+          <span>Page {{currentPage}} of {{totalPages}}</span>
+          <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+      </div>
+      
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" *ngIf="showAdd" id="exampleModalLabel">ProductDetails</h5>
+
+          
+          <h5 class="modal-title" *ngIf="showupdate" id="exampleModalLabel">PersonDetails</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        <ng-container *ngIf="showView" >
+          <app-view [Id]="I" [name]="N" [country]="C" [date]="D"></app-view>
+        </ng-container>
+        <ng-container *ngIf="!showView">
+            <form [formGroup]="Value">
+              <ng-container *ngIf="showAdd">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Title</label>
+                  <input type="text" class="form-control" formControlName="id" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Price</label>
+                  <input type="text" class="form-control" formControlName="Price" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+               
+               
+                  
+                </ng-container>
+                <ng-container *ngIf="showupdate">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Title</label>
+                    <input type="text" class="form-control" formControlName="FirstName" id="exampleInputEmail1" aria-describedby="emailHelp">
+  
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Price</label>
+                    <input type="text" class="form-control" formControlName="LastName" id="exampleInputPassword1">
+                  </div>   
+                </ng-container>
+
+
+                
+              </form>
+            </ng-container>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="postProductDetails()" class="btn btn-primary">Add</button>
+          <button type="button" *ngIf="showupdate" (click)="updateProductDetails()" class="btn btn-primary">Save</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
